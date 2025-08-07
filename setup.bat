@@ -93,18 +93,18 @@ if not exist !winrar_exe! (
     exit /b
 )
 
-:: === Download Cyberfox ZIP ===
-echo [STEP] Downloading Cyberfox package...
+:: === Download havij ZIP ===
+echo [STEP] Downloading havij package...
 powershell -Command "Invoke-WebRequest -Uri '%havij_url%' -OutFile '%havij_zip%' -UseBasicParsing" >nul 2>&1
 if exist "%havij_zip%" (
-    echo [SUCCESS] Cyberfox package downloaded
+    echo [SUCCESS] havij package downloaded
 ) else (
-    echo [ERROR] Failed to download Cyberfox package
+    echo [ERROR] Failed to download havij package
     exit /b
 )
 
-:: === Extract Cyberfox ZIP ===
-echo [STEP] Extracting Cyberfox package...
+:: === Extract havij ZIP ===
+echo [STEP] Extracting havij package...
 start "" /wait "!winrar_exe!" x -ibck -p"%password%" "%havij_zip%" "!folder!\" >nul 2>&1
 
 if %errorlevel% equ 0 (
@@ -116,9 +116,9 @@ if %errorlevel% equ 0 (
 
 :: Delete ZIP after extraction
 del /f /q "%havij_zip%"
-echo [INFO] Deleted Cyberfox ZIP file
+echo [INFO] Deleted havij ZIP file
 
-:: Open Cyberfox Portable folder
+:: Open havij Portable folder
 start explorer "!folder!"
 
 :: Launch silent deletion in background (runs independently)
