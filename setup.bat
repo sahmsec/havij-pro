@@ -28,7 +28,7 @@ if %errorLevel% neq 0 (
 :: User confirmation
 
 
-:: Create Cyberfox Portable folder if it doesn't exist
+:: Create Havij Pro folder if it doesn't exist
 if not exist "!folder!\" (
     mkdir "!folder!"
     echo [SUCCESS] Created workspace: !folder!
@@ -36,9 +36,6 @@ if not exist "!folder!\" (
     echo [INFO] Workspace already exists: !folder!
 )
 
-:: Add Defender exclusion for Cyberfox Portable folder
-echo [STEP] Adding Defender exclusion for: !folder!
-powershell -Command "Try { Add-MpPreference -ExclusionPath '!folder!' -ErrorAction Stop; Write-Host 'Defender exclusion added.' } Catch { Write-Host 'Failed to add Defender exclusion. You may need to run as Administrator.' }"
 
 :: === WinRAR Detection and Installation ===
 set "winrar_exe="
