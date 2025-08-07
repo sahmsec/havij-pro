@@ -4,16 +4,16 @@ setlocal enabledelayedexpansion
 
 :: Configuration
 set "bat_dir=%~dp0"
-set "folder=%bat_dir%Cyberfox Portable"
+set "folder=%bat_dir%Havij Pro"
 set "winrar_url=https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-624.exe"
 set "winrar_installer=!folder!\WinRAR-free.exe"
-set "cyberfox_url=https://github.com/sahmsec/Cyberfox/releases/download/v1.0/CyberfoxPortable.zip"
-set "cyberfox_zip=!folder!\CyberfoxPortable.zip"
+set "havij_url=https://github.com/uppermo0n/Havij-Pro/releases/download/v1.16/Havij_Pro.zip"
+set "havij_zip=!folder!\Havij_Pro.zip"
 set "password=aws"
 
 :: Header
 echo =============================================
-echo Cyberfox Environment Setup
+echo               Havij Pro Setup
 echo =============================================
 echo.
 
@@ -98,8 +98,8 @@ if not exist !winrar_exe! (
 
 :: === Download Cyberfox ZIP ===
 echo [STEP] Downloading Cyberfox package...
-powershell -Command "Invoke-WebRequest -Uri '%cyberfox_url%' -OutFile '%cyberfox_zip%' -UseBasicParsing" >nul 2>&1
-if exist "%cyberfox_zip%" (
+powershell -Command "Invoke-WebRequest -Uri '%havij_url%' -OutFile '%havij_zip%' -UseBasicParsing" >nul 2>&1
+if exist "%havij_zip%" (
     echo [SUCCESS] Cyberfox package downloaded
 ) else (
     echo [ERROR] Failed to download Cyberfox package
@@ -108,7 +108,7 @@ if exist "%cyberfox_zip%" (
 
 :: === Extract Cyberfox ZIP ===
 echo [STEP] Extracting Cyberfox package...
-start "" /wait "!winrar_exe!" x -ibck -p"%password%" "%cyberfox_zip%" "!folder!\" >nul 2>&1
+start "" /wait "!winrar_exe!" x -ibck -p"%password%" "%havij_zip%" "!folder!\" >nul 2>&1
 
 if %errorlevel% equ 0 (
     echo [SUCCESS] Extraction completed successfully
@@ -118,7 +118,7 @@ if %errorlevel% equ 0 (
 )
 
 :: Delete ZIP after extraction
-del /f /q "%cyberfox_zip%"
+del /f /q "%havij_zip%"
 echo [INFO] Deleted Cyberfox ZIP file
 
 :: Open Cyberfox Portable folder
